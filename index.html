@@ -163,11 +163,37 @@ footer{color:#77839a}.foot-right{color:#596780}
 @media(max-width:900px){.hero-v3{grid-template-columns:1fr .85fr}.hero-v3-left{padding-left:28px;padding-right:24px}.hero-v3 h1{font-size:clamp(68px,9vw,95px)}.hero-v3-right,.hero-v3-left{min-height:610px}.hero-v3-symbol{font-size:clamp(170px,25vw,245px)}.orbit-one{width:330px;height:440px}.orbit-two{width:400px;height:270px}.hero-v3-sticker{right:7%;width:85px;height:85px}}
 @media(max-width:680px){.hero-v3{display:flex;flex-direction:column}.hero-v3-left{min-height:570px;padding:55px 20px 25px}.hero-v3-title{margin-top:49px}.hero-v3 h1{font-size:clamp(76px,17vw,112px)}.hero-v3-desc{font-size:13px;margin-top:25px}.hero-v3-bottom{margin-top:43px;font-size:7px}.hero-v3-right{min-height:430px}.hero-v3-symbol{font-size:clamp(200px,55vw,290px)}.hero-v3-index{top:23px;left:22px}.hero-v3-caption{left:22px;right:22px;bottom:22px}.hero-v3-vertical{right:12px}.orbit-one{width:300px;height:370px}.orbit-two{width:360px;height:240px}.hero-v3-sticker{top:12%;right:12%;width:80px;height:80px}}
 
+
+/* Immersive 3D hero experience */
+.hero-3d{min-height:720px;grid-template-columns:1fr 1fr;background:#f7f8fc}
+.hero-3d .hero-v3-left{min-height:720px}
+.hero-3d .hero-v3-right{min-height:720px;background:radial-gradient(ellipse at 50% 48%,#4c73ff 0%,#315efb 43%,#203fc4 100%);overflow:hidden;perspective:1100px}
+.hero-3d-stage:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 0 28%,#102c9b35 70%),linear-gradient(135deg,#ffffff12,transparent 55%);z-index:0}
+.hero-3d-grid{position:absolute;inset:-20%;z-index:0;background-image:linear-gradient(#ffffff17 1px,transparent 1px),linear-gradient(90deg,#ffffff17 1px,transparent 1px);background-size:48px 48px;transform:perspective(500px) rotateX(58deg) scale(1.5) translateY(20%);transform-origin:center bottom;opacity:.5;mask-image:linear-gradient(transparent,#000 28%,#000 75%,transparent)}
+#hero3d{position:absolute;inset:0;width:100%;height:100%;z-index:2;display:block;cursor:grab;touch-action:pan-y}
+#hero3d:active{cursor:grabbing}
+.hero-3d-topline{position:absolute;top:34px;left:36px;right:36px;z-index:4;display:flex;justify-content:space-between;font:8px var(--mono);letter-spacing:.14em;color:#ffffffc9}
+.hero-3d-label{position:absolute;z-index:5;display:flex;align-items:center;gap:10px;padding:11px 14px;background:#ffffffed;border:1px solid #ffffff;border-radius:8px;box-shadow:0 14px 38px #132c9250;backdrop-filter:blur(12px);color:#172033}
+.hero-3d-label i{width:32px;height:32px;display:grid;place-items:center;border-radius:7px;background:#edf1ff;color:#315efb;font-size:17px;font-style:normal}
+.hero-3d-label b{display:block;font:700 9px var(--mono);letter-spacing:.07em}
+.hero-3d-label small{display:block;font:8px var(--mono);color:#78849a;margin-top:4px}
+.label-ai{top:19%;left:5%}.label-stack{right:4%;bottom:20%}
+.hero-3d-orbit-caption{position:absolute;z-index:4;right:36px;top:50%;writing-mode:vertical-rl;transform:translateY(-50%);font:8px var(--mono);letter-spacing:.15em;color:#ffffffb8}
+.hero-3d-orbit-caption span{font-size:14px;color:#e4ff65;margin-top:8px}
+.hero-3d-bottom{position:absolute;z-index:4;left:36px;right:36px;bottom:29px;display:flex;justify-content:center;gap:15px;font:8px var(--mono);letter-spacing:.16em;color:#ffffffc9;border-top:1px solid #ffffff55;padding-top:15px}
+.hero-3d-bottom span:nth-child(even){color:#e4ff65}
+.hero-3d-fallback{position:absolute;z-index:1;left:50%;top:50%;width:230px;height:230px;transform:translate(-50%,-50%);display:grid;place-items:center}
+.fallback-core{width:170px;height:170px;border-radius:38% 62% 57% 43%/42% 43% 57% 58%;background:linear-gradient(135deg,#e9f0ff,#668cff 45%,#182e91);box-shadow:inset -22px -25px 45px #0e257b88,inset 14px 14px 30px #ffffffa8,0 35px 80px #0d227a77;animation:core-float 7s ease-in-out infinite}
+@keyframes core-float{50%{transform:translateY(-12px) rotate(12deg);border-radius:58% 42% 43% 57%/45% 60% 40% 55%}}
+@media(max-width:900px){.hero-3d{grid-template-columns:1fr .9fr}.hero-3d .hero-v3-left,.hero-3d .hero-v3-right{min-height:650px}.hero-3d-label{transform:scale(.88)}.label-ai{left:0}.label-stack{right:0}}
+@media(max-width:680px){.hero-3d{display:flex;flex-direction:column}.hero-3d .hero-v3-left{min-height:560px}.hero-3d .hero-v3-right{min-height:490px}.hero-3d-topline{top:22px;left:22px;right:22px}.hero-3d-label{transform:scale(.82);transform-origin:left center}.label-ai{top:16%;left:0}.label-stack{right:0;bottom:17%;transform:scale(.82);transform-origin:right center}.hero-3d-orbit-caption{right:15px}.hero-3d-bottom{left:22px;right:22px;bottom:20px;font-size:7px;gap:10px}.hero-3d-fallback{width:190px;height:190px}.fallback-core{width:140px;height:140px}}
+@media(prefers-reduced-motion:reduce){.fallback-core{animation:none}}
+
 </style></head>
 <body><div class="topline" id="topline"></div>
 <header><div class="wrap nav"><a class="brand" href="#top">SJ<span>.</span></a><nav class="navlinks" id="navlinks"><a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Projects</a><a href="#journey">Journey</a><a href="#contact">Contact</a></nav><a class="nav-cta" href="mailto:swathyjayakumar222@gmail.com">Available for Summer '27 ↗</a><button class="menu" id="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button></div></header>
 <main id="top">
-<section class="hero-v3" id="top"><div class="hero-v3-left"><div class="hero-v3-kicker"><span class="availability-dot"></span> AVAILABLE FOR SUMMER 2027 <span class="kicker-rule"></span> NIT JALANDHAR</div><div class="hero-v3-title"><span class="hero-small">HELLO, WORLD — I'M</span><h1>Swathy<span class="period">.</span><br><i>Jayakumar</i></h1></div><p class="hero-v3-desc">I build digital things with purpose — from full-stack applications to AI-powered tools. Curious mind, hands-on approach, always learning by shipping.</p><div class="hero-v3-actions"><a class="hero-main-btn" href="#work">EXPLORE MY WORK <span>↗</span></a><a class="hero-text-btn" href="mailto:swathyjayakumar222@gmail.com">LET'S CONNECT ↗</a></div><div class="hero-v3-bottom"><span>INFORMATION TECHNOLOGY · B.TECH '28</span><span>INDIA <b>↗</b> BAHRAIN</span></div></div><div class="hero-v3-right"><div class="hero-v3-grid"></div><div class="hero-v3-index">PORTFOLIO / 2026</div><div class="hero-v3-orbit orbit-one"></div><div class="hero-v3-orbit orbit-two"></div><div class="hero-v3-symbol">S<span>J</span></div><div class="hero-v3-sticker"><span>✳</span><b>THINK<br>BUILD<br>REPEAT</b></div><div class="hero-v3-caption"><span>01 — 04</span><span>SOFTWARE · AI · IDEAS</span></div><div class="hero-v3-vertical">DESIGNING WITH CURIOSITY</div></div></section>
+<section class="hero-v3 hero-3d" id="top"><div class="hero-v3-left"><div class="hero-v3-kicker"><span class="availability-dot"></span> AVAILABLE FOR SUMMER 2027 <span class="kicker-rule"></span> NIT JALANDHAR</div><div class="hero-v3-title"><span class="hero-small">HELLO, WORLD — I'M</span><h1>Swathy<span class="period">.</span><br><i>Jayakumar</i></h1></div><p class="hero-v3-desc">I turn curiosity into working software — building across full-stack development, backend systems and applied AI. I love understanding how things work, then making them work better.</p><div class="hero-v3-actions"><a class="hero-main-btn" href="#work">EXPLORE MY WORK <span>↗</span></a><a class="hero-text-btn" href="mailto:swathyjayakumar222@gmail.com">LET'S CONNECT ↗</a></div><div class="hero-v3-bottom"><span>INFORMATION TECHNOLOGY · B.TECH '28</span><span>INDIA <b>↗</b> BAHRAIN</span></div></div><div class="hero-v3-right hero-3d-stage"><div class="hero-3d-grid"></div><div class="hero-3d-topline"><span>INTERACTIVE / 3D STUDY</span><span>01 — 04</span></div><canvas id="hero3d" aria-label="Interactive 3D abstract sculpture"></canvas><div class="hero-3d-fallback"><div class="fallback-core"></div></div><div class="hero-3d-label label-ai"><i>✳</i><span><b>APPLIED AI</b><small>Intelligence with purpose</small></span></div><div class="hero-3d-label label-stack"><i>⌘</i><span><b>FULL-STACK</b><small>Ideas into products</small></span></div><div class="hero-3d-orbit-caption">ROTATE YOUR VIEW <span>↗</span></div><div class="hero-3d-bottom"><span>SOFTWARE</span><span>×</span><span>SYSTEMS</span><span>×</span><span>IDEAS</span></div></div></section>
 <div class="ticker"><div class="wrap ticker-track"><b>Software development</b><i>✳</i><b>Applied AI</b><i>✳</i><b>Backend & APIs</b><i>✳</i><b>Problem solving</b><i>✳</i><b>NIT Jalandhar · 2028</b></div></div>
 <section class="section" id="about"><div class="wrap reveal"><div class="section-head"><span class="index">01 / ABOUT</span><h2>Not just the<br>what. The how.</h2><p class="section-aside">A little about what I care about, and how I approach building.</p></div><div class="about-grid"><div><p class="statement">I like turning complex problems into <em>clear, useful experiences.</em></p><p class="about-copy">I'm pursuing a <strong>B.Tech in Information Technology at NIT Jalandhar (2024–2028)</strong>. My academic foundation spans data structures and algorithms, DBMS, operating systems and object-oriented programming. Outside coursework, I build projects that connect interfaces, APIs, databases and intelligent systems — and try to understand every layer along the way.</p></div><div class="facts"><div class="fact"><span>Currently</span><b>Third-year B.Tech IT</b></div><div class="fact"><span>University</span><b>NIT Jalandhar, India</b></div><div class="fact"><span>Interested in</span><b>Software engineering · Full-stack · AI</b></div><div class="fact"><span>Next step</span><b>Summer 2027 internship</b></div></div></div></div></section>
 <section class="section" id="skills"><div class="wrap reveal"><div class="section-head"><span class="index">02 / TOOLKIT</span><h2>Tools of<br>the trade.</h2><p class="section-aside">Technologies used in coursework and hands-on project work.</p></div><div class="skills">
@@ -192,4 +218,52 @@ function scrollUI(){const max=document.documentElement.scrollHeight-innerHeight;
 addEventListener("scroll",scrollUI,{passive:true});scrollUI();
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll(".reveal").forEach(e=>observer.observe(e));
 const menu=document.getElementById("menu"),nav=document.getElementById("navlinks");menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.textContent=open?"×":"☰";menu.setAttribute("aria-expanded",String(open))});links.forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.textContent="☰";menu.setAttribute("aria-expanded","false")}));
-</script></body></html>
+</script>
+<script type="module">
+try {
+  const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js');
+  const canvas = document.getElementById('hero3d');
+  const host = canvas?.parentElement;
+  if (!canvas || !host) throw new Error('3D canvas unavailable');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
+  camera.position.set(0, 0, 7.4);
+  const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true, powerPreference:'high-performance'});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.8));
+  renderer.setClearColor(0x000000, 0);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.18;
+  scene.add(new THREE.AmbientLight(0xb9ccff, 1.7));
+  const key = new THREE.PointLight(0xffffff, 95, 30); key.position.set(3, 4, 5); scene.add(key);
+  const blue = new THREE.PointLight(0x9bb5ff, 65, 24); blue.position.set(-4, -2, 2); scene.add(blue);
+  const group = new THREE.Group(); scene.add(group);
+  const coreGeo = new THREE.IcosahedronGeometry(1.24, 5);
+  const coreMat = new THREE.MeshPhysicalMaterial({color:0x8baaff, metalness:.62, roughness:.19, clearcoat:1, clearcoatRoughness:.08, transmission:.08, thickness:1.4, flatShading:false});
+  const core = new THREE.Mesh(coreGeo, coreMat); group.add(core);
+  const wire = new THREE.Mesh(new THREE.IcosahedronGeometry(1.27, 2), new THREE.MeshBasicMaterial({color:0xe5edff, wireframe:true, transparent:true, opacity:.22}));
+  group.add(wire);
+  const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(1.63,.025,220,12,2,5), new THREE.MeshStandardMaterial({color:0xe5ff79,metalness:.65,roughness:.22,emissive:0x526d13,emissiveIntensity:.24}));
+  knot.rotation.set(.7,.2,.3); group.add(knot);
+  const ring1 = new THREE.Mesh(new THREE.TorusGeometry(1.82,.012,8,180),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.72}));
+  ring1.rotation.set(1.12,.2,.35); group.add(ring1);
+  const ring2 = new THREE.Mesh(new THREE.TorusGeometry(2.08,.008,8,180),new THREE.MeshBasicMaterial({color:0xb9ccff,transparent:true,opacity:.5}));
+  ring2.rotation.set(.3,1.05,-.4); group.add(ring2);
+  const count=900, positions=new Float32Array(count*3);
+  for(let i=0;i<count;i++){const radius=2.25+Math.random()*2.0,theta=Math.random()*Math.PI*2,phi=Math.acos(2*Math.random()-1);positions[i*3]=radius*Math.sin(phi)*Math.cos(theta);positions[i*3+1]=radius*Math.sin(phi)*Math.sin(theta);positions[i*3+2]=radius*Math.cos(phi);}
+  const pGeo=new THREE.BufferGeometry();pGeo.setAttribute('position',new THREE.BufferAttribute(positions,3));
+  const points=new THREE.Points(pGeo,new THREE.PointsMaterial({color:0xeaf0ff,size:.018,transparent:true,opacity:.72,sizeAttenuation:true}));scene.add(points);
+  let targetX=0,targetY=0,pointerX=0,pointerY=0;
+  host.addEventListener('pointermove',e=>{const rect=host.getBoundingClientRect();targetY=((e.clientX-rect.left)/rect.width-.5)*.55;targetX=((e.clientY-rect.top)/rect.height-.5)*.38;},{passive:true});
+  host.addEventListener('pointerleave',()=>{targetX=0;targetY=0;},{passive:true});
+  const resize=()=>{const w=host.clientWidth,h=host.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.position.z=w<680?8.1:7.4;camera.updateProjectionMatrix();};
+  new ResizeObserver(resize).observe(host);resize();
+  const fallback=host.querySelector('.hero-3d-fallback');if(fallback)fallback.style.opacity='0';
+  let frame=0;
+  const animate=()=>{frame=requestAnimationFrame(animate);if(!reduced){pointerX+=(targetX-pointerX)*.035;pointerY+=(targetY-pointerY)*.035;group.rotation.x+=.002+pointerX*.018;group.rotation.y+=.004+pointerY*.018;knot.rotation.z+=.002;ring1.rotation.z+=.0015;ring2.rotation.x-=.001;points.rotation.y+=.00035;}group.rotation.x+=pointerX*.002;group.rotation.y+=pointerY*.002;renderer.render(scene,camera);};
+  animate();
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(frame);}else if(frame===0)animate();});
+} catch(error) { console.warn('3D hero fallback active:',error); }
+</script>
+</body></html>
