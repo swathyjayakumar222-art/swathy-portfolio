@@ -223,23 +223,13 @@ main,footer,nav{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){.hero-3d-label,.hero-3d-stage:after{animation:none}.project,.skill{transition:none}}
 
 
-/* Starfield ambience */
-body:after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.52;background-image:
-radial-gradient(1.4px 1.4px at 8% 14%,#ffffff 98%,transparent),
-radial-gradient(1px 1px at 19% 72%,#8eaaff 98%,transparent),
-radial-gradient(1.6px 1.6px at 34% 28%,#ffffff 98%,transparent),
-radial-gradient(1px 1px at 48% 84%,#9ab5ff 98%,transparent),
-radial-gradient(1.5px 1.5px at 63% 18%,#ffffff 98%,transparent),
-radial-gradient(1px 1px at 78% 57%,#b5c8ff 98%,transparent),
-radial-gradient(1.5px 1.5px at 91% 33%,#ffffff 98%,transparent),
-radial-gradient(1px 1px at 95% 89%,#9ab5ff 98%,transparent);
-background-size:420px 360px;animation:star-drift 90s linear infinite}
-@keyframes star-drift{to{background-position:420px 360px}}
-.starfield{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;contain:strict}
-.starfield .star{position:absolute;left:var(--sx);top:var(--sy);width:var(--ss);height:var(--ss);border-radius:50%;background:#fff;opacity:var(--so);box-shadow:0 0 calc(var(--ss)*3) calc(var(--ss)*.7) #9bb8ff;animation:twinkle var(--sd) ease-in-out var(--delay) infinite alternate}
-.starfield .star:after{content:"";position:absolute;left:50%;top:50%;width:1px;height:calc(var(--ss)*5);background:linear-gradient(transparent,#ffffffb0,transparent);transform:translate(-50%,-50%) rotate(45deg);opacity:.6}
-@keyframes twinkle{from{opacity:.18;transform:scale(.65)}to{opacity:var(--so);transform:scale(1.5)}}
-@media(prefers-reduced-motion:reduce){body:after{animation:none}.starfield .star{animation:none}}
+/* Full-viewport star layer: stays visible over every section while scrolling */
+body:after{content:none!important}
+.starfield{position:fixed!important;inset:0!important;width:100vw;height:100vh;pointer-events:none!important;z-index:9999!important;overflow:hidden;contain:strict;mix-blend-mode:difference;opacity:.9}
+.starfield .star{position:absolute;left:var(--sx);top:var(--sy);width:var(--ss);height:var(--ss);border-radius:50%;background:#fff;opacity:var(--so);box-shadow:0 0 calc(var(--ss)*4) calc(var(--ss)*.9) #d8e4ff;animation:twinkle var(--sd) ease-in-out var(--delay) infinite alternate;will-change:opacity,transform}
+.starfield .star:after{content:"";position:absolute;left:50%;top:50%;width:1px;height:calc(var(--ss)*7);background:linear-gradient(transparent,#ffffff,transparent);transform:translate(-50%,-50%) rotate(45deg);opacity:.75}
+@keyframes twinkle{from{opacity:.16;transform:scale(.55)}to{opacity:var(--so);transform:scale(1.65)}}
+@media(prefers-reduced-motion:reduce){.starfield .star{animation:none}}
 
 </style></head>
 <body><div class="topline" id="topline"></div>
@@ -355,21 +345,20 @@ try {
 
 <script>
 (() => {
- if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
  const layer=document.createElement('div');layer.className='starfield';layer.setAttribute('aria-hidden','true');
  let seed=73421;const rand=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
  const frag=document.createDocumentFragment();
- for(let i=0;i<92;i++){
+ for(let i=0;i<190;i++){
   const star=document.createElement('i');star.className='star';
   star.style.setProperty('--sx',(rand()*100).toFixed(2)+'%');
   star.style.setProperty('--sy',(rand()*100).toFixed(2)+'%');
-  star.style.setProperty('--ss',(1+rand()*2.1).toFixed(1)+'px');
-  star.style.setProperty('--so',(0.35+rand()*.6).toFixed(2));
-  star.style.setProperty('--sd',(2.2+rand()*4.8).toFixed(2)+'s');
+  star.style.setProperty('--ss',(0.8+rand()*2.0).toFixed(1)+'px');
+  star.style.setProperty('--so',(0.42+rand()*.58).toFixed(2));
+  star.style.setProperty('--sd',(1.8+rand()*4.8).toFixed(2)+'s');
   star.style.setProperty('--delay',(-rand()*7).toFixed(2)+'s');
   frag.appendChild(star);
  }
- layer.appendChild(frag);document.body.prepend(layer);
+ layer.appendChild(frag);document.body.appendChild(layer);
 })();
 </script>
 </body></html>
