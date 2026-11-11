@@ -223,13 +223,32 @@ main,footer,nav{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){.hero-3d-label,.hero-3d-stage:after{animation:none}.project,.skill{transition:none}}
 
 
-/* Full-viewport star layer: stays visible over every section while scrolling */
+/* Polished full-page cosmic atmosphere */
 body:after{content:none!important}
-.starfield{position:fixed!important;inset:0!important;width:100vw;height:100vh;pointer-events:none!important;z-index:9999!important;overflow:hidden;contain:strict;mix-blend-mode:difference;opacity:.9}
-.starfield .star{position:absolute;left:var(--sx);top:var(--sy);width:var(--ss);height:var(--ss);border-radius:50%;background:#fff;opacity:var(--so);box-shadow:0 0 calc(var(--ss)*4) calc(var(--ss)*.9) #d8e4ff;animation:twinkle var(--sd) ease-in-out var(--delay) infinite alternate;will-change:opacity,transform}
-.starfield .star:after{content:"";position:absolute;left:50%;top:50%;width:1px;height:calc(var(--ss)*7);background:linear-gradient(transparent,#ffffff,transparent);transform:translate(-50%,-50%) rotate(45deg);opacity:.75}
-@keyframes twinkle{from{opacity:.16;transform:scale(.55)}to{opacity:var(--so);transform:scale(1.65)}}
-@media(prefers-reduced-motion:reduce){.starfield .star{animation:none}}
+.starfield{position:fixed!important;inset:0!important;width:100vw;height:100vh;pointer-events:none!important;z-index:9999!important;overflow:hidden;contain:strict;mix-blend-mode:difference;opacity:.68}
+.starfield .star{position:absolute;left:var(--sx);top:var(--sy);width:var(--ss);height:var(--ss);border-radius:50%;background:#fff;opacity:var(--so);box-shadow:0 0 calc(var(--ss)*3.2) calc(var(--ss)*.55) #c9d9ff;animation:twinkle var(--sd) ease-in-out var(--delay) infinite alternate;will-change:opacity,transform}
+.starfield .star:after{content:"";position:absolute;left:50%;top:50%;width:1px;height:calc(var(--ss)*5);background:linear-gradient(transparent,#ffffff,transparent);transform:translate(-50%,-50%) rotate(45deg);opacity:.58}
+.starfield .shooting-star{position:absolute;left:var(--sx);top:var(--sy);width:var(--trail);height:1px;background:linear-gradient(90deg,transparent,#fff 75%,#dce7ff);opacity:0;transform:rotate(-32deg);transform-origin:right center;filter:drop-shadow(0 0 4px #b8ccff);animation:shoot var(--sd) linear var(--delay) infinite}
+@keyframes twinkle{from{opacity:.12;transform:scale(.58)}to{opacity:var(--so);transform:scale(1.5)}}
+@keyframes shoot{0%,78%{opacity:0;translate:0 0}80%{opacity:.9}90%{opacity:.7;translate:-170px 95px}100%{opacity:0;translate:-210px 118px}}
+/* Small interaction details that make the work feel tactile */
+.navlinks a{position:relative;transition:color .2s ease}
+.navlinks a:after{content:"";position:absolute;left:0;right:100%;bottom:-8px;height:1px;background:var(--red);transition:right .25s ease}
+.navlinks a:hover:after,.navlinks a.active:after{right:0}
+.project{transform-style:preserve-3d}
+.project-visual{isolation:isolate}
+.project-visual:before{content:"";position:absolute;inset:-40%;z-index:0;pointer-events:none;background:conic-gradient(from 0deg,transparent,#ffffff30,transparent 24%);animation:visual-glint 12s linear infinite}
+.project-visual>*{z-index:1}
+@keyframes visual-glint{to{transform:rotate(360deg)}}
+.project:hover .big-glyph{transform:translateZ(26px) scale(1.06);text-shadow:0 18px 38px #0002}
+.big-glyph{transition:transform .45s cubic-bezier(.2,.8,.2,1),text-shadow .45s}
+.project:hover .vital,.project:hover .flow span,.project:hover .tic span{box-shadow:0 7px 18px #172b4a18;transform:translateY(-2px)}
+.vital,.flow span,.tic span{transition:transform .25s ease,box-shadow .25s ease}
+.section-head .index{display:inline-flex;align-items:center;gap:8px}
+.section-head .index:before{content:"";width:17px;height:1px;background:currentColor}
+.btn,.repo{transition:transform .25s ease,background .25s ease,color .25s ease,box-shadow .25s ease}
+.btn:hover{box-shadow:0 10px 22px #172b4a18}
+@media(prefers-reduced-motion:reduce){.starfield .star,.starfield .shooting-star,.project-visual:before{animation:none}.navlinks a:after{transition:none}}
 
 </style></head>
 <body><div class="topline" id="topline"></div>
@@ -348,15 +367,27 @@ try {
  const layer=document.createElement('div');layer.className='starfield';layer.setAttribute('aria-hidden','true');
  let seed=73421;const rand=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
  const frag=document.createDocumentFragment();
- for(let i=0;i<190;i++){
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ for(let i=0;i<240;i++){
   const star=document.createElement('i');star.className='star';
   star.style.setProperty('--sx',(rand()*100).toFixed(2)+'%');
   star.style.setProperty('--sy',(rand()*100).toFixed(2)+'%');
-  star.style.setProperty('--ss',(0.8+rand()*2.0).toFixed(1)+'px');
-  star.style.setProperty('--so',(0.42+rand()*.58).toFixed(2));
-  star.style.setProperty('--sd',(1.8+rand()*4.8).toFixed(2)+'s');
-  star.style.setProperty('--delay',(-rand()*7).toFixed(2)+'s');
+  star.style.setProperty('--ss',(0.7+rand()*1.8).toFixed(1)+'px');
+  star.style.setProperty('--so',(0.35+rand()*.62).toFixed(2));
+  star.style.setProperty('--sd',(2+rand()*5.2).toFixed(2)+'s');
+  star.style.setProperty('--delay',(-rand()*8).toFixed(2)+'s');
   frag.appendChild(star);
+ }
+ if(!reduced){
+  for(let i=0;i<3;i++){
+   const meteor=document.createElement('i');meteor.className='shooting-star';
+   meteor.style.setProperty('--sx',(25+rand()*70).toFixed(1)+'%');
+   meteor.style.setProperty('--sy',(5+rand()*70).toFixed(1)+'%');
+   meteor.style.setProperty('--trail',(65+rand()*85).toFixed(0)+'px');
+   meteor.style.setProperty('--sd',(9+rand()*10).toFixed(1)+'s');
+   meteor.style.setProperty('--delay',(-rand()*18).toFixed(1)+'s');
+   frag.appendChild(meteor);
+  }
  }
  layer.appendChild(frag);document.body.appendChild(layer);
 })();
