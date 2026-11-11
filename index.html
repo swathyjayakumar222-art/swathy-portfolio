@@ -57,6 +57,53 @@ footer{padding:27px 0 32px;font-size:10px;letter-spacing:.05em}
 @media(max-width:900px){.hero{min-height:680px;padding-top:80px;padding-bottom:70px}.hero h1{font-size:clamp(82px,12vw,125px)}.hero-bottom{gap:30px}.hero-art{transform:scale(.88)}.section-head{grid-template-columns:85px 1fr 190px}.project:nth-child(1) .project-visual{height:300px}}
 @media(max-width:680px){.nav{height:68px}.hero{width:100%;padding:65px 18px 52px;min-height:0;gap:15px}.hero h1{font-size:clamp(70px,16.5vw,110px);line-height:.82;margin:29px 0 25px}.hero-bottom{grid-template-columns:1fr;gap:20px}.intro{font-size:14px}.hero-note{font-size:8px;line-height:1.9}.hero-art{height:240px;transform:none;margin:0 auto 14px;width:100%}.orbit{width:205px;height:205px}.orbit:before{inset:22px}.orbit:after{inset:51px}.monogram{font-size:100px}.art-tag{font-size:8px}.section{padding:78px 0}.section-head{grid-template-columns:48px 1fr;gap:10px;margin-bottom:38px}.section h2{font-size:clamp(48px,12vw,65px)}.section-aside{font-size:9px}.statement{font-size:31px}.about-copy{font-size:12px}.skills{row-gap:0}.skill{min-height:190px;padding:18px 10px 20px 0}.skill h3{font-size:18px;margin:24px 0 14px}.chips span{font-size:8px;padding:6px}.projects{gap:15px}.project:nth-child(1) .project-visual{height:230px}.project-visual{height:190px}.project-info{padding:20px}.project h3{font-size:27px}.project p{font-size:11px}.journey{gap:40px}.contact{padding:78px 0 55px}.contact-box{padding:34px 22px}.contact-box h2{font-size:clamp(54px,13vw,75px)}.contact-box p{font-size:12px}.contact-details{font-size:8px;gap:12px 16px}}
 
+
+/* Modern professional refinement */
+:root{--paper:#f7f8fc;--ink:#172033;--muted:#647089;--line:#e5e9f1;--acid:#315efb;--red:#6c63ff}
+body{background:#f7f8fc;background-image:none;color:var(--ink);font-family:"Manrope",sans-serif}
+::selection{background:#dce5ff;color:#172033}
+.topline{background:linear-gradient(90deg,#315efb,#8b5cf6)}
+header{background:#ffffffeb;border-bottom:1px solid #e7eaf1}
+.brand span{color:#315efb}.navlinks a{color:#667085}.navlinks a:hover,.navlinks a.active{color:#315efb}.nav-cta{background:#172033;color:white;border-radius:6px}
+.hero{width:min(1240px,calc(100% - 72px));min-height:650px;padding:90px 0 78px;background:transparent;color:var(--ink);overflow:visible}
+.hero:before{width:490px;height:490px;right:0;top:60px;border:1px solid #dce3f5;box-shadow:0 0 0 45px #eef2fb,0 0 0 90px #f1f4fb}
+.hero:after{width:320px;height:320px;right:8%;bottom:0;background:#aabaff;filter:blur(130px);opacity:.18}
+.hero .kicker{color:#52617a}.hero .kicker:before{background:#315efb}
+.hero h1{color:#172033;font-size:clamp(78px,10.4vw,136px);line-height:.88;letter-spacing:-.095em;margin:35px 0 30px}
+.hero h1 .stroke{-webkit-text-stroke:1.5px #172033}.hero h1 .mark{color:#315efb}
+.hero-bottom{max-width:900px;grid-template-columns:1fr 235px;gap:48px}
+.intro{color:#58657b;font-size:15px;line-height:1.9}.intro strong{color:#172033}
+.hero .btn{border:1px solid #d7ddea;color:#243047;background:#fff;border-radius:7px}
+.hero .btn.dark{background:#315efb;border-color:#315efb;color:#fff;box-shadow:0 8px 20px #315efb25}
+.hero .btn:hover{background:#172033;color:white;border-color:#172033}
+.hero-note{border-color:#d8deea;color:#647089}
+.hero-art{height:390px}.orbit{width:285px;height:285px;border-color:#cdd7ed;box-shadow:0 15px 50px #1e3a8a0a}
+.orbit:before,.orbit:after{border-color:#d8e0f0}.orbit:before{inset:28px}.orbit:after{inset:65px}
+.orbit-dot{background:#315efb;box-shadow:0 0 0 8px #315efb18,0 0 22px #315efb55}
+.monogram{color:#172033;font-size:136px;text-shadow:none}.monogram span{color:#315efb}
+.art-tag{color:#647089}.art-cross{color:#315efb}
+.ticker{background:#172033;border-color:#172033;color:#fff}.ticker-track{padding:15px 0}.ticker i{color:#9eabff}
+.section{padding:105px 0;border-color:#e5e9f1}.index{color:#315efb}.section h2{color:#172033}
+.section-aside{color:#69758a}.statement{color:#26334a}.statement em{background:linear-gradient(transparent 67%,#dce5ff 67%);color:#244bd2}
+.about-copy{color:#667085}.about-copy strong{color:#172033}.facts{border-color:#172033}.fact{border-color:#e5e9f1}.fact span{color:#7a8598}.fact b{color:#25324a}
+.skills{border-color:#dce2ed}.skill{border-color:#e5e9f1}.skill .num{color:#315efb}.skill h3{color:#172033}.chips span{background:#fff;border-color:#e2e7f0;color:#46536b;border-radius:5px}
+.project{background:#fff;border:1px solid #e3e8f1;border-radius:12px;box-shadow:0 5px 22px #1c2b4a08;overflow:hidden}
+.project:hover{border-color:#b9c8f5;box-shadow:0 18px 42px #1c2b4a12;transform:translateY(-4px)}
+.project-visual{background:linear-gradient(135deg,#172033,#26395c);color:#c9d5ff}
+.project:nth-child(2) .project-visual{background:linear-gradient(135deg,#eaf2ff,#dce9fb);color:#1e4d89}
+.project:nth-child(3) .project-visual{background:linear-gradient(135deg,#f0edff,#e4e1fa);color:#5547a6}
+.project:nth-child(4) .project-visual{background:linear-gradient(135deg,#eaf0f8,#dce5f2);color:#26395f}
+.project:nth-child(1) .scan-frame{border-color:#a9bbff}.project:nth-child(1) .scan-frame:before{border-color:#a9bbff66}.project:nth-child(1) .scan-frame:after{background:#8ea7ff;box-shadow:0 0 20px #8ea7ff}
+.project-info{padding:25px 27px}.project-meta{color:#7a8598}.project h3{color:#172033}.project p{color:#667085}.tags{color:#65718a}.repo{color:#315efb;border-color:#315efb}.repo:hover{background:#edf1ff}
+.column-title{color:#315efb;border-color:#172033}.entry{border-color:#e5e9f1}.entry time,.entry p,.cert span{color:#69758a}.entry h3,.cert b{color:#172033}
+.contact-box{background:radial-gradient(circle at 85% 10%,#2b3e73 0,transparent 34%),#172033;border:0;border-radius:14px}
+.contact-box .kicker{color:#a9bbff}.contact-box .kicker:before{background:#8ea7ff}.contact-box h2 span{color:#a9bbff}.contact-box p{color:#c2cce0}
+.contact-box .btn{border-color:#64718e;color:#fff}.contact-box .btn.dark{background:#315efb;color:#fff;border-color:#315efb}.contact-box .btn:hover{background:#fff;color:#172033;border-color:#fff}
+.contact-details{border-color:#46536e;color:#b9c4d9}
+footer{color:#77839a}.foot-right{color:#596780}
+@media(max-width:900px){.hero{width:calc(100% - 48px);padding:75px 0 65px}.hero h1{font-size:clamp(72px,10vw,110px)}.hero:before{width:360px;height:360px;right:-20px}.hero-art{transform:scale(.9)}}
+@media(max-width:680px){.hero{width:calc(100% - 36px);padding:55px 0 48px;gap:12px}.hero h1{font-size:clamp(65px,15vw,100px)}.hero-art{height:225px;transform:none}.orbit{width:190px;height:190px}.orbit:before{inset:20px}.orbit:after{inset:48px}.monogram{font-size:95px}.hero:before{width:260px;height:260px;right:-40px;top:35px;box-shadow:0 0 0 25px #eef2fb,0 0 0 50px #f1f4fb}.hero-bottom{grid-template-columns:1fr;gap:18px}.hero-note{border-top:1px solid #d8deea;border-left:0;padding:12px 0 0}.section{padding:75px 0}.project{border-radius:9px}.contact-box{border-radius:10px}}
+
 </style></head>
 <body><div class="topline" id="topline"></div>
 <header><div class="wrap nav"><a class="brand" href="#top">SJ<span>.</span></a><nav class="navlinks" id="navlinks"><a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Projects</a><a href="#journey">Journey</a><a href="#contact">Contact</a></nav><a class="nav-cta" href="mailto:swathyjayakumar222@gmail.com">Available for Summer '27 ↗</a><button class="menu" id="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button></div></header>
